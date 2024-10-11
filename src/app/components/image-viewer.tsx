@@ -45,7 +45,7 @@ export default function ImageViewer({ imageUrl, altText = "Imagen subida" }: Ima
   return (
     <>
       {imageUrl !== "" ? (
-        <div className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-48'>
+        <div className='max-w-[85vw] mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl  mt-28 md:mt-48'>
           <div className='md:flex'>
             <div className='md:shrink-0'>
               <div className='h-48 w-full relative md:h-full md:w-48'>

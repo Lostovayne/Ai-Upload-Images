@@ -38,7 +38,7 @@ export default function LoadingModal({ isOpen = false, onClose = () => {} }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className='sm:max-w-[425px]'>
+      <DialogContent className=' max-md: w-[85vw] md:max-w-[425px] mx-auto'>
         <div className='flex flex-col items-center justify-center p-4'>
           <h2 className='text-lg font-semibold mb-4'>Cargando archivo...</h2>
           <div className='w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-4'>

@@ -39,9 +39,9 @@ export default function DragAndDrop() {
       <LoadingModal isOpen={isLoading} onClose={() => setIsLoading(false)} />
 
       {!isLoading && !imageUrl ? (
-        <div className='flex items-center h-full justify-center mt-48   p-4'>
+        <div className='flex items-center h-full justify-center mt-24 md:mt-48   p-4'>
           <div className=' '>
-            <div className='bg-white p-2.5 rounded-xl h-96 w-[700px] shadow-lg'>
+            <div className='bg-white p-2.5 rounded-xl h-48 md:h-96 w-auto md:w-[700px] shadow-lg'>
               <div
                 {...getRootProps()}
                 className={`bg-white h-full flex items-center justify-center flex-col border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
@@ -70,7 +70,9 @@ export default function DragAndDrop() {
                     <li key={index} className='flex items-center justify-between bg-gray-50 p-2 rounded'>
                       <div className='flex items-center'>
                         <File className='h-5 w-5 text-gray-400 mr-2' />
-                        <span className='text-sm text-gray-700'>{file.name}</span>
+                        <span className='text-sm text-gray-700 max-lg:max-w-52 line-clamp-1'>
+                          {file.name}
+                        </span>
                       </div>
 
                       <div className='flex  items-center gap-2'>
