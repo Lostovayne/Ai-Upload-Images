@@ -7,7 +7,7 @@ import { Download, Share2 } from "lucide-react";
 import ImageSkeleton from "./image-skeleton";
 
 interface ImageViewerProps {
-  imageUrl: string | undefined;
+  imageUrl: string;
   altText?: string;
 }
 
@@ -44,7 +44,7 @@ export default function ImageViewer({ imageUrl, altText = "Imagen subida" }: Ima
 
   return (
     <>
-      {imageUrl !== undefined ? (
+      {imageUrl !== "" ? (
         <div className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-48'>
           <div className='md:flex'>
             <div className='md:shrink-0'>

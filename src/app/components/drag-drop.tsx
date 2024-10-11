@@ -11,7 +11,7 @@ import ImageViewer from "./image-viewer";
 export default function DragAndDrop() {
   const [files, setFiles] = useState<File[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string | undefined>(undefined);
+  const [imageUrl, setImageUrl] = useState<string>("");
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...acceptedFiles]);
@@ -31,7 +31,6 @@ export default function DragAndDrop() {
       setImageUrl(URL.createObjectURL(files[0]));
     }, 6000);
     // setFiles([]);
-    console.log(!imageUrl);
   };
 
   return (
