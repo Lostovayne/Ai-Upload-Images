@@ -70,9 +70,7 @@ export default function DragAndDrop() {
                     <li key={index} className='flex items-center justify-between bg-gray-50 p-2 rounded'>
                       <div className='flex items-center'>
                         <File className='h-5 w-5 text-gray-400 mr-2' />
-                        <span className='text-sm text-gray-700 max-lg:max-w-52 line-clamp-1'>
-                          {file.name}
-                        </span>
+                        <span className='text-sm text-gray-700 sm:max-w-40 line-clamp-1'>{file.name}</span>
                       </div>
 
                       <div className='flex  items-center gap-2'>
