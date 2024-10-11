@@ -27,8 +27,6 @@ export default function ImageViewer({ imageUrl, altText = "Imagen subida" }: Ima
   };
 
   const handleShare = () => {
-    // En un caso real, aquí implementarías la lógica de compartir
-    console.log("Compartiendo imagen:", imageUrl);
     // Ejemplo básico de compartir (usando la API Web Share si está disponible):
     if (navigator.share) {
       navigator
@@ -46,7 +44,7 @@ export default function ImageViewer({ imageUrl, altText = "Imagen subida" }: Ima
 
   return (
     <>
-      {imageUrl ? (
+      {imageUrl !== undefined ? (
         <div className='max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-48'>
           <div className='md:flex'>
             <div className='md:shrink-0'>
