@@ -25,8 +25,6 @@ Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
    git clone [URL_DEL_REPOSITORIO]
    ```
 
-````
-
 2.Instala las dependencias:
 
 ```bash
@@ -37,7 +35,10 @@ bun install
    Copia el archivo `.example.env` a `.env.local` y completa las credenciales de Cloudinary requeridas:
 
    ```bash
-   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu_cloud_name CLOUDINARY_API_KEY=tu_api_key CLOUDINARY_API_SECRET=tu_api_secret CLOUDINARY_URL=tu_cloudinary_url NEXT_PUBLIC_CLOUDINARY_API_KEY=tu_public_api_key
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu_cloud_name
+   CLOUDINARY_API_KEY=tu_api_key CLOUDINARY_API_SECRET=tu_api_secret
+   CLOUDINARY_URL=tu_cloudinary_url
+   NEXT_PUBLIC_CLOUDINARY_API_KEY=tu_public_api_key
    ```
 
 4. Ejecuta el servidor de desarrollo:
@@ -85,7 +86,6 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md
 
 ## Contacto
 
-Tu Nombre - [@tutwitter](https://twitter.com/tutwitter) - email@ejemplo.com
+Epsaind - [@tutwitter](https://twitter.com/tutwitter) - email@ejemplo.com
 
-Enlace del Proyecto: [https://github.com/tuusuario/upload-image](https://github.com/tuusuario/upload-image)
-````
+Enlace del Proyecto: [https://github.com/tuusuario/upload-image](https://github.com/LostoVayne/upload-image)
