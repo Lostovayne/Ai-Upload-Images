@@ -1,44 +1,47 @@
 "use client";
 
-import { CloudUpload, File, Trash, Upload, FileImage } from "lucide-react";
+import { uploadImageToCloudinary } from "@/actions/cloudinary-service";
+import { CloudUpload, File, Trash, Upload } from "lucide-react";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import Navbar from "./navbar";
-import { Button } from "@/components/ui/button";
+import ImageEditor from "./image-editor";
 import LoadingModal from "./loading-modal";
-import ImageViewer from "./image-viewer";
 
-export default function DragAndDrop() {
+export default function DropzoneComponent() {
+  // States
+  const [imageUrl, setImageUrl] = useState("");
   const [files, setFiles] = useState<File[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState<string>("");
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    setFiles((prevFiles) => [...prevFiles, ...acceptedFiles]);
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
+    setIsLoading(true);
+
+    if (acceptedFiles.length > 0) {
+      const file = acceptedFiles[0];
+      try {
+        const url = await uploadImageToCloudinary(file);
+        console.log("Uploaded successfully:", url);
+
+        setIsLoading(false);
+        setImageUrl(url);
+
+        // Aquí puedes hacer algo con la URL, como mostrar la imagen o guardarla en el estado
+      } catch (error) {
+        console.error("Upload failed:", error);
+      }
+    }
   }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   const removeFile = (file: File) => {
     setFiles((prevFiles) => prevFiles.filter((f) => f !== file));
   };
 
-  const handleUpload = async () => {
-    setIsLoading(true);
-    console.log("Uploading file:", files[0]);
-
-    setTimeout(() => {
-      setImageUrl(URL.createObjectURL(files[0]));
-    }, 6000);
-    // setFiles([]);
-  };
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div className='min-h-screen bg-[#f9fafb]'>
-      <Navbar />
+    <div>
       <LoadingModal isOpen={isLoading} onClose={() => setIsLoading(false)} />
-
-      {!isLoading && !imageUrl ? (
+      {!isLoading && !imageUrl && (
         <div className='flex items-center h-full justify-center mt-24 md:mt-48   p-4'>
           <div className=' '>
             <div className='bg-white p-2.5 rounded-xl h-48 md:h-96 w-auto md:w-[700px] shadow-lg'>
@@ -76,7 +79,7 @@ export default function DragAndDrop() {
                       <div className='flex  items-center gap-2'>
                         <button
                           arual-label='Subir archivo'
-                          onClick={() => handleUpload()}
+                          onClick={() => {}}
                           className='text-zinc-700 hover:text-zinc-500'>
                           <CloudUpload className='h-5 w-5' />
                         </button>
@@ -96,9 +99,8 @@ export default function DragAndDrop() {
             )}
           </div>
         </div>
-      ) : (
-        <ImageViewer imageUrl={imageUrl} altText='Imagen subida' />
       )}
+      {imageUrl !== "" && <ImageEditor imageUrl={imageUrl} />}
     </div>
   );
 }
