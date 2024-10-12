@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# Image Upload and Editor
 
-## Getting Started
+## Descripción
 
-First, run the development server:
+Este proyecto es una aplicación web que permite a los usuarios cargar imágenes y editarlas utilizando la API de Cloudinary. Ofrece una interfaz de arrastrar y soltar para la carga de imágenes, así como un editor de imágenes integrado para realizar ajustes y modificaciones.
+
+![Image Description](resources/image.jpg)
+
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Características](#características)
+- [Configuración](#configuración)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
+- [Estado del Proyecto](#estado-del-proyecto)
+
+## Instalación
+
+Para instalar y ejecutar este proyecto localmente, sigue estos pasos:
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   ```
+
+````
+
+2.Instala las dependencias:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Configura las variables de entorno:
+   Copia el archivo `.example.env` a `.env.local` y completa las credenciales de Cloudinary requeridas:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=tu_cloud_name CLOUDINARY_API_KEY=tu_api_key CLOUDINARY_API_SECRET=tu_api_secret CLOUDINARY_URL=tu_cloudinary_url NEXT_PUBLIC_CLOUDINARY_API_KEY=tu_public_api_key
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+4. Ejecuta el servidor de desarrollo:
 
-## Learn More
+   ```bash
+   bun run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+5. Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/src/app`: Contiene las páginas principales de la aplicación y los layouts
+- `/src/components`: Componentes React reutilizables
+- `/src/actions`: Acciones del servidor para el servicio de Cloudinary
+- `/src/lib`: Funciones de utilidad y bibliotecas compartidas
 
-## Deploy on Vercel
+## Uso
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Navega a la página principal
+2. Utiliza la interfaz de arrastrar y soltar o haz clic para seleccionar una imagen para cargar
+3. Una vez cargada, usa el editor de imágenes para hacer los ajustes necesarios
+4. Guarda tus cambios y gestiona tus imágenes cargadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribuir
+
+¡Las contribuciones son bienvenidas! No dudes en enviar un Pull Request.
+
+1. Haz un fork del proyecto
+2. Crea tu rama de características (`git checkout -b feature/CaracteristicaIncreible`)
+3. Haz commit de tus cambios (`git commit -m 'Añadir alguna CaracteristicaIncreible'`)
+4. Haz push a la rama (`git push origin feature/CaracteristicaIncreible`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+
+## Agradecimientos
+
+- [Documentación de Next.js](https://nextjs.org/docs)
+- [Documentación de Cloudinary](https://cloudinary.com/documentation)
+- [Documentación de Tailwind CSS](https://tailwindcss.com/docs)
+- [Componentes de shadcn/ui](https://ui.shadcn.com/)
+
+## Contacto
+
+Tu Nombre - [@tutwitter](https://twitter.com/tutwitter) - email@ejemplo.com
+
+Enlace del Proyecto: [https://github.com/tuusuario/upload-image](https://github.com/tuusuario/upload-image)
+````
